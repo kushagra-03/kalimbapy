@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+{% block body %}
+  <ul class=entries>
+  {% for entry in entries %}
+    <li><h2>{{ entry.title }}</h2>{{ entry.text|safe }}
+  {% else %}
+    <li>No data yet. Click <a href="/update">here</a> to fetch data.</li>
+  {% endfor %}
+  </ul>
+{% endblock %}
