@@ -45,8 +45,8 @@ def after_request(response):
 
 @app.route('/')
 def show_entries():
-    cur = g.db.execute('select title, description, link_origin from articles order by rank asc')
-    entries = [dict(title=row[0], text=row[1], subtext=row[2]) for row in cur.fetchall()]
+    cur = g.db.execute('select title, description, rank, points, author, author_url, link, link_origin, comments_count, last_comment, last_comment_author, last_comment_author_url from articles order by rank asc')
+    entries = [dict(title=row[0], description=row[1], rank=row[2],points=row[3], author=row[4], author_url=row[5], link=row[6], link_origin=row[7], comments_count=row[8], last_comment=row[9]) for row in cur.fetchall()]
     return render_template('show_entries.html', entries=entries)
 
 @app.route('/update')
@@ -93,3 +93,28 @@ def update():
 
 if __name__ == '__main__':
     app.run()
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    #, comments_count=row[8], last_comment=row[9],
+     #            last_comment_author=row[10], last_comment_author_url=row[12]
+    
+    
