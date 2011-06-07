@@ -45,8 +45,8 @@ def after_request(response):
 
 @app.route('/')
 def show_entries():
-    cur = g.db.execute('select title, description from articles order by rank asc')
-    entries = [dict(title=row[0], text=row[1]) for row in cur.fetchall()]
+    cur = g.db.execute('select title, description, link_origin from articles order by rank asc')
+    entries = [dict(title=row[0], text=row[1], subtext=row[2]) for row in cur.fetchall()]
     return render_template('show_entries.html', entries=entries)
 
 @app.route('/update')
@@ -76,10 +76,10 @@ def update():
 
         article = pq(hsi_url)
         # fetch the following information from article
-        description = "description"
-        last_comment = "/html/body/center/table/tbody/tr/td/table/tbody/tr/td/table/tbody/tr/td.default/span.comment/font"
-        last_comment_author = ""
-        last_comment_author_url = ""
+        description = "Description"
+        last_comment = "User's last comment"
+        last_comment_author = "Author"
+        last_comment_author_url = "url"
         print rank, title, link, link_origin, description, points, author, author_url, comments_count, hsi_url
         g.db.execute("insert into articles (rank, title, link, link_origin,\
                 description, points, author, author_url,\
