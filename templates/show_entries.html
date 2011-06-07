@@ -3,7 +3,7 @@
   <ul class=entries>
   {% for entry in entries %}
     <li><h2>{{ entry.rank|safe }} <a href="{{entry.link}}">{{entry.title}}</a></h2> 
-     <font size="2">{{ entry.points }} points by <a href="{{entry.author_url}}">{{entry.author}}</a> {{ entry.comments_count}} comments</font> <p> </p>
+     <font size="1">{{ entry.points }} points by <a href="{{entry.author_url}}">{{entry.author}}</a> {{ entry.comments_count}} comments</font> <p> </p>
   {% else %}
     <li>No data yet. Click <a href="/update">here</a> to fetch data.</li>
   {% endfor %}

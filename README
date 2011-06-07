@@ -10,6 +10,4 @@ After installation open up the terminal and fire up python
 Run the server by typing "python kalimba.py"
 and point the browser to localhost:5000
 
-P.S. The fetching of data from Hackerstreet is extremely slow so you might have to wait for quite some time.
-     Another thing once you start seeing the data fetched in the terminal close the server and restart it. Then 
-     go to localhost again and you'll see the rendered page.
+P.S. The fetching of data from Hackerstreet is quite slow so you might have to wait for quite some time.
